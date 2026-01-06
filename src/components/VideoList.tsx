@@ -77,3 +77,4 @@ const formatDuration = (seconds: number): string => {
   }
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
+

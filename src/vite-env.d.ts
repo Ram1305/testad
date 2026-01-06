@@ -15,3 +15,4 @@ declare global {
     cloudinary: any;
   }
 }
+

@@ -1,14 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Venkateswara TV Add-on</title>
-    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venkateswara TV</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Cloudinary Video Player CSS -->
+  <link href="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.css" rel="stylesheet">
+  <style>
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    #video-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .fullscreen-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-overlay"></div>
+
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Venkateswara TV</h1>
+    </header>
+
+    <section class="video-section">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video id="video-player" class="cld-video-player" autoplay muted playsinline loop></video>
+          <button id="fullscreen-btn" class="glass-btn fullscreen-btn">
+            <span class="icon">⛶</span> Fullscreen
+          </button>
+        </div>
+        <div class="controls">
+          <div class="status-indicator">
+            <span class="pulse-dot"></span>
+            <span id="loop-status">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="instructions-card">
+      <h3>How to Enable Loop</h3>
+      <ol>
+        <li>Click the <strong>Play</strong> button on the video.</li>
+        <li><strong>Right-click</strong> anywhere inside the video player.</li>
+        <li>Select <span class="highlight">"Loop"</span> from the menu.</li>
+      </ol>
+      <p class="tip">✨ Pro-tip: Use the Fullscreen button above for an immersive experience.</p>
+    </section>
+  </main>
+
+  <!-- Cloudinary Core JS -->
+  <script src="https://unpkg.com/cloudinary-core/cloudinary-core-shrinkwrap.min.js"></script>
+  <!-- Cloudinary Video Player JS -->
+  <script src="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>

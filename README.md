@@ -152,3 +152,4 @@ MIT
 ## Support
 
 For issues or questions, please check the configuration and ensure Cloudinary credentials are correct.
+
