@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { VideoItem } from '../services/storage';
 import './VideoPlayer.css';
@@ -156,12 +156,15 @@ const GoogleDriveVideoPlayer: React.FC = () => {
     setPlayed(state.played);
   };
 
-  const handleSeek = (e: React.MouseEvent<HTMLProgressElement>) => {
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!playerRef.current) return;
     
-    const rect = e.currentTarget.getBoundingClientRect();
+    const progressBar = e.currentTarget.querySelector('progress');
+    if (!progressBar) return;
+    
+    const rect = progressBar.getBoundingClientRect();
     const pos = (e.clientX - rect.left) / rect.width;
-    playerRef.current.seekTo(pos, 'fraction');
+    playerRef.current.seekTo(pos);
     setPlayed(pos);
   };
 
